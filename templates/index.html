@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/style.css">
+
+<div class="header">
+    <h1>Notes App</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="note-form">
+            <h2>Add New Note</h2>
+            <form method="post" action="/">
+                <div class="mb-3">
+                    <label for="no" class="form-label">No.</label>
+                    <input type="number" class="form-control" id="no" name="no" required>
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Description</label>
+                    <textarea class="form-control" id="desc" name="desc" rows="3" required></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="imp" name="imp">
+                    <label class="form-check-label" for="imp">Important</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="notes-table">
+            <h2>Your Notes</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doc in docList %}
+                    <tr>
+                        <td>{{ doc.no }}</td>
+                        <td>{{ doc.title }}</td>
+                        <td>{{ doc.desc }}</td>
+                        <td>
+                            {% if doc.imp %}
+                                <span class="badge bg-danger">Important</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Normal</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
