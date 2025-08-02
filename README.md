@@ -1,8 +1,5 @@
 # NotesApp
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/your-org/notesapp/actions)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/your-org/notesapp.svg?style=social&label=Stars)](https://github.com/your-org/notesapp/stargazers)
 
 ## Description
 
